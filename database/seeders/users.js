@@ -3,8 +3,8 @@ const { v4: uuidv4 } = require('uuid');
 
 User.createCollection();
 User.insertMany([
-    { id: uuidv4(), name: 'ABC' },
-    { id: uuidv4(), name: 'DEF' },
+    { name: 'ABC', email: 'abc@def.gh', password: 'password' },
+    { name: 'IJK', email: 'ijk@lmn.op', password: 'password' },
 ], function (error, docs) {
     console.log(error, docs);
 })
