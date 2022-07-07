@@ -4,7 +4,7 @@
 var express = require('express');
 var router = express.Router();
 const { login, restricted, logout, showLogin } = require('../app/Http/Controllers/auth.js');
-const { index: indexUsers } = require('../app/Http/Controllers/user.js');
+const { index: indexUsers, store: storeUser, show: showUser, update: updateUser, destory: destoryUser } = require('../app/Http/Controllers/user.js');
 const { restrict } = require('../app/Http/Middleware/auth.js');
 const { AUTH_PREFIX } = require('../app/Providers/route.js');
 
@@ -19,6 +19,10 @@ router.get(AUTH_PREFIX.concat('/logout'), logout);
 
 /* GET users listing. */
 router.get('/users', indexUsers);
+router.post('/users', storeUser);
+router.get('/users/:userId', showUser);
+router.put('/users/:userId', updateUser);
+router.delete('/users/:userId', destoryUser);
 
 // app.put('/user', (req, res) => {
 //   res.send('Got a PUT request at /user')
