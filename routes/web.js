@@ -4,6 +4,7 @@
 var express = require('express');
 var router = express.Router();
 const { login, restricted, logout, showLogin } = require('../app/Http/Controllers/auth.js');
+const { index: indexUsers } = require('../app/Http/Controllers/user.js');
 const { restrict } = require('../app/Http/Middleware/auth.js');
 const { AUTH_PREFIX } = require('../app/Providers/route.js');
 
@@ -17,7 +18,7 @@ router.get(AUTH_PREFIX.concat('/restricted'), restrict, restricted);
 router.get(AUTH_PREFIX.concat('/logout'), logout);
 
 /* GET users listing. */
-router.get('/', function (req, res, next) { res.send('respond with a resource'); });
+router.get('/users', indexUsers);
 
 // app.put('/user', (req, res) => {
 //   res.send('Got a PUT request at /user')
