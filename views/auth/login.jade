@@ -1,0 +1,16 @@
+extends ../layout
+
+block content
+  h1 Login
+  p {message}
+  p Try accessing <a href="/auth/restricted">/auth/restricted</a>, then authenticate with "tj" and "foobar".
+  form(action="/auth/login", method="post")
+    p
+      label(for="username") Username:
+      input#username(type="text", name="username")
+    p
+      label(for="password") Password:
+      input#password(type="text", name="password") 
+
+    p
+      input(type="submit", value="Login")
