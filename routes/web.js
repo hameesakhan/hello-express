@@ -31,4 +31,11 @@ router.get('/posts/:postId', showPost);
 router.put('/posts/:postId', updatePost);
 router.delete('/posts/:postId', destoryPost);
 
+const { index: indexTodos, store: storeTodo, show: showTodo, update: updateTodo, destory: destoryTodo } = require('../app/Http/Controllers/todo.js');
+router.get('/todos', indexTodos);
+router.post('/todos', storeTodo);
+router.get('/todos/:todoId', showTodo);
+router.put('/todos/:todoId', updateTodo);
+router.delete('/todos/:todoId', destoryTodo);
+
 module.exports = router;
